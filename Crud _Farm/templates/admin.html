@@ -1,0 +1,44 @@
+{% extends 'main.html'%}
+
+{% block cabecera %}
+        <title>Administrador</title>
+{% endblock %}
+
+{% block cuerpo %}
+<h2 id="title">Seccion de administrador</h2>
+    <div class="text-center">
+                <h5>Tabla de Clientes.<h5>
+                    <div class="card-body">
+                        <table class="table table-responsive-sm table-striped" id="tbl_doc">
+                            <thead class="thead-inverse">
+                                <tr class="text-center">
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Mayoreo</th>
+                                    <th>Estatus</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead> 
+                            <tbody>
+                                {%for product in list_productos%}
+                                  <tr>
+                                    <td>{{product.id}}</td>
+                                    <td>{{product.nombre}}</td>
+                                    <td>{{product.precio}}</td>
+                                    <td>{{product.cantidad}}</td>
+                                    <td>{{product.precio_mayoreo}}</td>
+                                    <td>{{product.estatus}}</td>
+                                    <td><a href="{{url_for('eliminar')}}">Eliminar</a>
+                                        <a href="{{url_for('actualizar')}}">Actualizar</a>
+                                      </td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                        </div>
+    </div>
+    {% endblock %}
+
+    <!--, id=client.id-->

@@ -1,0 +1,14 @@
+{%for product in lista_productos%}
+<form action="{{url_for('actualizar', id=product.id)}}" method="post">
+    <div class="form-group">
+      <input type="text"  name="name" class="form-control" placeholder="ingrese el nombre del producto" required><br>
+      <input type="text"  name="pre_a" class="form-control" placeholder="ingrese el precio unitario" required><br>
+      <input type="text"  name="cant_a" class="form-control" placeholder="cantidad de productos" required><br>
+      <input type="text"  name="pre_m_a" class="form-control" placeholder="ingrese el precio por  mayoreo" required><br>
+      <input type="text"  name="sta_a" class="form-control" placeholder="ingrese el estatus actual" required><br>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-info float-right ues-info">Actualizar</button>
+    </div>
+  </form>
+  {%endfor%}

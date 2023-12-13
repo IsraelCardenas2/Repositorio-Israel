@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Farmacia</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.css')}}">
+    <link rel="Stylesheet" href="{{url_for('static',filename='bootstrap.bundle.js')}}">
+    <link rel="Stylesheet" href="{{url_for('static',filename='bootstrap-icons.css')}}">
+    <link rel="Stylesheet" href="{{url_for('static',filename='/static/css/custom.css')}}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="hola">
+                <h2 class="far">Farmacia del Ahorro</h2>
+            </div>
+            <div id="contenedor" class="col-3">
+                {%include 'plantillas/formulario.html'%}
+            </div>
+            <div class="col-6" >
+                <h5 class="text-center">Administrar Productos<h5>
+                    <table class="table table-responsive-sm table-striped">
+                        <thead class="thead-inverse">
+                            <tr class="text-center">
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Precio por mayoreo</th>
+                                <th>Estatus</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            {%for product in lista_productos%}
+                              <tr>
+                                <td>{{product.id}}</td>
+                                <td>{{product.nombre}}</td>
+                                <td>{{product.precio}}</td>
+                                <td>{{product.cantidad}}</td>
+                                <td>{{product.precio_mayoreo}}</td>
+                                <td>{{product.estatus}}</td>
+                                <td> <a href="{{url_for('eliminar', id = product.id)}}">Eliminar</a>
+                                    <button class="btn btn-info mt-4 ues-btn" id="formulario_actualizar" data-bs-toggle="modal" data-bs-target="#actualizar-Registro">Actualizar</button><!--<a href="ues-publicar-modal/">Actualizar</a>-->
+                                  </td>
+                              </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{{url_for('static',filename='bootstrap.bundle.js')}}">
+    </script>
+</body>
+</html>

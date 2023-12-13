@@ -1,0 +1,61 @@
+{% extends 'main.html'%}
+
+{% block cabecera %}
+        <title class="ti">Farmacia del Ahorro</title>
+{% endblock %}
+{% block cuerpo %}
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-2">
+                <img src="/static/img/logo_farm.png" class="farm_a" alt="">
+                <h2 class="far">Farmacias del</h2>
+                <i class="far_ahorro">Ahorro</i>
+
+                <a href="http://localhost:6060">Regresar</a>
+                {% include 'plantillas/publicar-modal.html'%}
+            </div>
+            <div id="contenedor" class="col-3">
+                {% include 'plantillas/formulario.html'%}
+            </div>
+            <div class="col-6" >
+                <h5 class="text-center ad_pro">Administrar Productos<h5>
+                    <table class="table table-responsive-sm table-striped">
+                        <thead class="thead-inverse">
+                            <tr class="text-center">
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Precio por Mayoreo</th>
+                                <th>Estatus</th>
+                                <th>Acciones</th>
+                            </tr>   
+                        </thead> 
+                        <tbody>
+                            {%for product in lista_productos%}
+                              <tr>
+                                <td>{{product.id}}</td>
+                                <td>{{product.nombre}}</td>
+                                <td>{{product.precio}}</td>
+                                <td>{{product.cantidad}}</td>
+                                <td>{{product.precio_mayoreo}}</td>
+                                <td>{{product.estatus}}</td>
+                                <td> <a href="{{url_for('eliminar', id = product.id)}}" class="eliminar">Eliminar</a>
+                                    <button class="btn btn-info mt-4 ues-btn" id="formulario_actualizar" data-bs-toggle="modal" data-bs-target="#actualizar-Registro">Actualizar</button><!--<a href="ues-publicar-modal/">Actualizar</a>-->
+                                  </td>
+                              </tr>
+                              {%include 'plantillas/publicar-modal.html'%}
+                            {%endfor%}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+    {% endblock %}
+
+    <!--Flask SESIon se instala con un pip-->

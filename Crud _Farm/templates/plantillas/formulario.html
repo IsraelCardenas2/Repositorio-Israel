@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.css')}}">
+    <link rel="Stylesheet" href="{{url_for('static',filename='bootstrap.bundle.js')}}">
+    <link rel="Stylesheet" href="{{url_for('static',filename='bootstrap-icons.css')}}">
+    <link rel="Stylesheet" href="{{url_for('static',filename='/css/custom.css')}}">
+</head>
+<body>
+  <div class="div_cont_form">
+    <header class="cont_div"> + Nuevo Producto </header>
+    <form action="{{url_for('insertar')}}" method="post">
+      <div class="form-group">
+        <input type="text" name="nombre" class="form-control inpt" placeholder="Ingrese el nombre del producto" required><br>
+        <input type="text" name="precio" class="form-control inpt" placeholder="Ingrese su precio unitario" required><br>
+        <input type="text" name="cantidad" class="form-control inpt" placeholder="Cantidad de productos" required><br>
+        <input type="text" name="precio_mayoreo" class="form-control inpt" placeholder="Ingrese el precio por mayoreo" required><br>
+        <input type="text" name="estatus" class="form-control inpt" placeholder="Ingrese el estatus del producto" required><br>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-info float-right ues-info">Enviar</button>
+      </div>
+    </form>
+  </div>
+    
+  <script src="{{url_for('static',filename='bootstrap.bundle.js')}}">
+  </script>
+</body>
+</html>
+
